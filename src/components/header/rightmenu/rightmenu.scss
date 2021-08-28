@@ -1,11 +1,13 @@
+.bell-button-wrapper {
+  height: 100%;
+}
 .bell-button-attr {
+    display: block;
     border: none;
     background: none;
+    width: 100%;
+    height: 100%;
     cursor: pointer;
   }
-  .bell-icon-attr {
-    display: block;
-    width: 25px;
-    height: 25px;
-  }
+
   

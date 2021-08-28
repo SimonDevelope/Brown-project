@@ -1,19 +1,10 @@
-.hamberger-svg-attr {
-    display: block;
-    width: 25px;
-    height: 25px;
-  }
-  .hamberger-button-icon {
-    vertical-align: middle;
-    color: inherit;
-    outline: none;
+.menubar-total-view-port{
+  height: 100%;
+}
+.hamburger-button-icon {
     background: none;
-    margin: 0;
     border: none;
-    padding: 0;
-    width: 70%;
-    height: 70%;
-    line-height: 0;
+    width: 100%;
+    height: 100%;
     cursor: pointer;
-  }
-  
+}

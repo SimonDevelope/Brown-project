@@ -1,0 +1,39 @@
+.menubar-modal-total-view-port {
+    width: 250px;
+    height: 795px;
+    background: #DDDDDD;
+    position: absolute;
+}
+.menubar-modal-total-inner-view-port {
+    width: 100%;
+    height: 50%;
+}
+.menubar-modal-content-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items:flex-start;
+    padding: 10px 20px;
+}
+.menubar-modal-content-common-attr {
+    display: block;
+}
+.menubar-modal-a-attr {
+    text-decoration: none;
+    font-weight: 600;
+    color: black
+}
+.hamburger-button-attr {
+    background: none;
+    width: fit-content;
+    height: fit-content;
+    border: none;
+    cursor: pointer;
+}
+.menubar-modal-hamburger-button-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
