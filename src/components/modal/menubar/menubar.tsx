@@ -2,11 +2,17 @@ import React from 'react';
 import { HamburgerIcon } from '../../svg/svg';
 import './menubar.scss';
 
-const menubarModal: React.FC = () => {
+interface onMenuProps {
+  setOpenMenuBar: React.Dispatch<React.SetStateAction<boolean>>;
+}
+const menubarModal: React.FC<onMenuProps> = ({ setOpenMenuBar }) => {
+  const onMenu: React.MouseEventHandler<HTMLButtonElement> = () => {
+    setOpenMenuBar((openMenuBar) => !openMenuBar);
+  };
   return (
     <div className="menubar-modal-total-view-port">
       <div className="menubar-modal-hamburger-button-wrapper">
-        <button className="hamburger-button-attr">
+        <button className="hamburger-button-attr" onClick={onMenu}>
           <HamburgerIcon />
         </button>
       </div>

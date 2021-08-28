@@ -5,13 +5,11 @@ import './home.scss';
 
 const home: React.FC = () => {
   const [openMenuBar, setOpenMenuBar] = useState<boolean>(false);
-  const onMenuBar = () => {
-    setOpenMenuBar((openMenuBar) => !openMenuBar);
-  };
+
   return (
     <div className="home-total-view-port">
-      <Header onMenuBar={onMenuBar} />
-      {openMenuBar ? '' : <MenuModal />}
+      <Header setOpenMenuBar={setOpenMenuBar} />
+      {openMenuBar ? <MenuModal setOpenMenuBar={setOpenMenuBar} /> : ''}
     </div>
   );
 };
