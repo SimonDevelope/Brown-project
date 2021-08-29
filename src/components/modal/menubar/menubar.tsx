@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { ReactElement, useCallback } from 'react';
 import { HamburgerIcon } from '../../svg/svg';
 import './menubar.scss';
 
 interface onMenuProps {
   setOpenMenuBar: React.Dispatch<React.SetStateAction<boolean>>;
 }
-const menubarModal: React.FC<onMenuProps> = ({ setOpenMenuBar }) => {
-  const onMenu: React.MouseEventHandler<HTMLButtonElement> = () => {
+const menubarModal = ({ setOpenMenuBar }: onMenuProps): ReactElement => {
+  const onMenu: React.MouseEventHandler<HTMLButtonElement> = useCallback(() => {
     setOpenMenuBar((openMenuBar) => !openMenuBar);
-  };
+  }, [setOpenMenuBar]);
   return (
     <div className="menubar-modal-total-view-port">
       <div className="menubar-modal-hamburger-button-wrapper">

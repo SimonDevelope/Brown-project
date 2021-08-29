@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import './menubar.scss';
 import { HamburgerIcon } from '../svg/svg';
 
-const menubar: React.FC = () => {
+const menubar = (): ReactElement => {
   return (
     <div className="menubar-total-view-port">
       <button className="hamburger-button-icon">

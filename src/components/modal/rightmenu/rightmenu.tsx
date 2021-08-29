@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import './rightmenu.scss';
 
-const rightmenuModal: React.FC = () => {
+const rightmenuModal = (): ReactElement => {
   return <div></div>;
 };
 
