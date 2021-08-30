@@ -15,20 +15,23 @@
     width: 100%;
     height: fit-content;
     padding: 24px 0px;
-    font-size: 22px;
+    font-size: 32px;
     font-weight: 600;
+    font-style: italic;
 }
 .calender-content-view-port {
     display: block;
 }
+.calendar-content-view-port {
+    padding: 0 20px;
+}
 .calendar-content-header-wrapper {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items:center;
+    margin-top: 20px;
 }
-.calendar-content-header {
-    display: flex;
-}
+
 .calendar-content-header-button-wrapper {
     display: flex;
     justify-content: space-around;
@@ -52,6 +55,8 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    font-size: 20px;
+    font-weight: 600;
 }
 .calendar-partition-attr {
     border: 2px solid #DDDDDD;
@@ -74,11 +79,10 @@
     grid-template-rows: repeat(1, 50px);
     margin-top: 20px;
     grid-gap: 15px;
-    border-bottom: 1px solid #222222;
 }
 .calendar-content-dates-inner-attr {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     border: none;
     border-radius: 8px;
@@ -89,19 +93,36 @@
     height: auto;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(6, 70px);
-    grid-gap: 15px;
+    grid-template-rows: repeat(6, 100px);
 }
-.calendar-content-today-number-attr {
+.calendar-content-today-number {
     color: #ffffff;
-}
-.calendar-content-today-number-outter-attr {
+    border:1px solid rgb(250, 36, 36);
+    background:  rgb(250, 36, 36);
+    border-radius: 16px;
+    width: 15%;
+    height: 22%;
+    margin-top: 2%;
+    margin-left: 5%;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: fit-content;
-    height:fit-content;
-    border:1px solid rgb(250, 36, 36);
-    background:  rgb(250, 36, 36);
-    border-radius: 8px;
+}
+.calendar-content-number-inner-wrapper {
+    border: 1px solid #DDDDDD;
+    position: relative;
+    box-sizing: border-box;
+}
+.calendar-content-number-common-attr {
+    position: relative;
+    width: 10%;
+    height: 15%;
+    margin-top: 5%;
+    margin-left: 5%;
+}
+.calendar-content-today-number-outter-attr {
+    border: 1px solid #DDDDDD;
+}
+.calendar-content-today-number-attr {
+    display: block;
 }

@@ -6,32 +6,13 @@ export const CalendarFunction = () => {
   const day = new Date();
   const year = day.getFullYear();
   const month = day.getMonth() + 1;
-  const thisDay = day.getDate();
   const pointToday: any = useRef();
 
   const [dates, setDates] = useState<number[]>([]);
   const [years, setYears] = useState<number>(year);
   const [months, setMonths] = useState<number>(month);
   const [today, setToday] = useState<number>(0);
-  const [IsToday, SetIsToday] = useState({
-    hours: day.getHours(),
-    minutes: day.getMinutes(),
-    seconds: day.getSeconds(),
-  });
 
-  useEffect(() => {
-    const nowTime = setInterval(() => {
-      const day = new Date();
-      SetIsToday({
-        hours: day.getHours(),
-        minutes: day.getMinutes(),
-        seconds: day.getSeconds(),
-      });
-    }, 1000);
-    return () => {
-      clearInterval(nowTime);
-    };
-  }, []);
   const settingMonths = (years: number, months: number) => {
     const thisMonthFirstDay = new Date(years, months - 1, 1);
 
@@ -41,7 +22,7 @@ export const CalendarFunction = () => {
 
     const date = [];
     if (thisMonthFirstDay.getDay() !== 0) {
-      for (let i = 0; i < thisMonthFirstDay.getDate(); i++) {
+      for (let i = 0; i < thisMonthFirstDay.getDay(); i++) {
         date.unshift(lastMonthLastDay.getDate() - i);
       }
     }
@@ -63,13 +44,13 @@ export const CalendarFunction = () => {
   const onPrevMonth: React.MouseEventHandler<HTMLButtonElement> = useCallback(() => {
     setMonths(months - 1);
     setYears(years);
-    settingMonths(year, months);
+    settingMonths(years, months);
   }, [months, years]);
 
   const onNextMonth: React.MouseEventHandler<HTMLButtonElement> = useCallback(() => {
     setMonths(months + 1);
     setYears(years);
-    settingMonths(year, months);
+    settingMonths(years, months);
   }, [months, years]);
 
   const findToday = dates.indexOf(today);
@@ -84,11 +65,6 @@ export const CalendarFunction = () => {
   return (
     <div className="calendar-content-view-port">
       <div className="calendar-content-header-wrapper">
-        <div className="calendar-content-header">{`현재시간: ${years}년 ${months}월 ${thisDay}일
-       ${IsToday.hours < 10 ? `0${IsToday.hours}` : `${IsToday.hours}`}
-       :${IsToday.minutes < 10 ? `0${IsToday.minutes}` : `${IsToday.minutes}`}
-       :${IsToday.seconds < 10 ? `0${IsToday.seconds}` : `${IsToday.seconds}`}
-      `}</div>
         <div className="calender-content-header-month">
           <div>{`${years}년`}</div>
           &nbsp;
@@ -121,13 +97,15 @@ export const CalendarFunction = () => {
             if (findToday === index && month === months && findToday) {
               return (
                 <div key={index} className="calendar-content-today-number-outter-attr">
-                  <div className="calendar-content-today-number-attr">{calendarList}</div>
+                  <div className="calendar-content-today-number">
+                    <span className="calendar-content-today-number-attr">{calendarList}</span>
+                  </div>
                 </div>
               );
             } else {
               return (
                 <div key={index} ref={pointToday} className="calendar-content-number-inner-wrapper">
-                  {calendarList}
+                  <div className="calendar-content-number-common-attr">{calendarList}</div>
                 </div>
               );
             }
