@@ -2,10 +2,11 @@ import React, { ReactElement, ReactNode } from 'react';
 import Menubar from '../menubar/menubar';
 import RightMenu from './rightmenu/rightmenu';
 import './header.scss';
-type openModalProps = {
+interface openModalProps {
   setOpenMenuBar: React.Dispatch<React.SetStateAction<boolean>>;
   children?: ReactNode;
-};
+}
+
 const header = ({ setOpenMenuBar }: openModalProps): ReactElement => {
   const onMenu: React.MouseEventHandler<HTMLButtonElement> = () => {
     setOpenMenuBar((openMenuBar) => !openMenuBar);

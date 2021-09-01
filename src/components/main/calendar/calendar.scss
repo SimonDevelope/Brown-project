@@ -100,29 +100,38 @@
     border:1px solid rgb(250, 36, 36);
     background:  rgb(250, 36, 36);
     border-radius: 16px;
-    width: 15%;
+    width: 19%;
     height: 22%;
     margin-top: 2%;
-    margin-left: 5%;
+    margin-left: 2%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .calendar-content-number-inner-wrapper {
     border: 1px solid #DDDDDD;
+    background: #ffffff;
     position: relative;
     box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 .calendar-content-number-common-attr {
     position: relative;
     width: 10%;
-    height: 15%;
     margin-top: 5%;
     margin-left: 5%;
 }
 .calendar-content-today-number-outter-attr {
     border: 1px solid #DDDDDD;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 .calendar-content-today-number-attr {
     display: block;
+    
 }
