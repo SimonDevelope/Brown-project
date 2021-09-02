@@ -1,27 +1,23 @@
-import React, { useEffect } from 'react';
+import React, { ReactElement, useEffect } from 'react';
 import './mapApi.scss';
+require('dotenv').config();
+
 declare global {
   interface Window {
     kakao: any;
   }
 }
 
-function mapApi() {
-  const container = document.getElementById('map');
-  const options = {
-    center: new window.kakao.maps.LatLng(33.450701, 126.570667),
-    level: 3,
-  };
+const mapApi = (): ReactElement => {
   useEffect(() => {
-    const map = new window.kakao.maps.Map(container, options);
-    map();
-    return () => {};
-  }, []);
-  return (
-    <div>
-      <div id="map" className="map-api-style"></div>
-    </div>
-  );
-}
+    const container = document.getElementById('map');
+    const options = {
+      center: new window.kakao.maps.LatLng(33.450701, 126.570667),
+      level: 3,
+    };
+    new window.kakao.maps.Map(container, options);
+  });
+  return <div id="map" className="map-api-style"></div>;
+};
 
 export default mapApi;
