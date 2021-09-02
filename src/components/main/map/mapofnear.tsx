@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react';
+import MapApi from '../../Api/mapapi/mapApi';
 import './mapofnear.scss';
 
 const map = (): ReactElement => {
@@ -7,7 +8,9 @@ const map = (): ReactElement => {
       <div className="map-subject-wrapper">
         <span className="map-subject-attr">🗺</span>
       </div>
-      <div className="map-content-outter-wrapper"></div>
+      <div className="map-content-outter-wrapper">
+        <MapApi />
+      </div>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react';
 import './notice.scss';
-
+require('dotenv').config();
+console.log(process.env.REACT_APP_KAKAOMAP_API);
 const notice = (): ReactElement => {
   return (
     <div className="notice-total-view-port">
