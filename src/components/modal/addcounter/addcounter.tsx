@@ -33,7 +33,7 @@ const addCounter = ({ setAddCounter, addCounter }: setAddCounterProps): ReactEle
     overflow-y: scroll
     `;
     };
-  });
+  }, []);
 
   return (
     <div className="add-counter-modal-total-view-port">
@@ -43,6 +43,9 @@ const addCounter = ({ setAddCounter, addCounter }: setAddCounterProps): ReactEle
             <button className="close-icon-button-attr" onClick={closedByIcon}>
               <CloseIcon />
             </button>
+          </div>
+          <div className="add-counter-modal-content-wrapper">
+            <div></div>
           </div>
         </div>
       </div>

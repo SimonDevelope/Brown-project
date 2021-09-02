@@ -1,0 +1,19 @@
+.alarm-modal-total-view-port {
+    width:30%;
+    height: 30%;
+    position: absolute;
+    z-index:3;
+    right: 30px;
+    top: 70px;
+}
+.alarm-modal-inner-wrapper {
+    width: 425px;
+    height: 440px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 0 20px;
+}
+.alarm-modal-content-wrapper {
+    border-radius: 8px;
+}

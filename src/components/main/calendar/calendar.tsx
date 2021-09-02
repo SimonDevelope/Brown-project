@@ -120,7 +120,7 @@ const calendar = (): ReactElement => {
   return (
     <div className="calendar-total-view-wrapper">
       <div className="calendar-subject">
-        <span className="calendar-subject-attr">Calendar</span>
+        <span className="calendar-subject-attr">🗓</span>
       </div>
       <div className="calendar-main-port">
         <CalendarFunction />

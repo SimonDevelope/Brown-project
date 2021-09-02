@@ -4,10 +4,11 @@ import RightMenu from './rightmenu/rightmenu';
 import './header.scss';
 interface openModalProps {
   setOpenMenuBar: React.Dispatch<React.SetStateAction<boolean>>;
+  setOpenAlarm: React.Dispatch<React.SetStateAction<boolean>>;
   children?: ReactNode;
 }
 
-const header = ({ setOpenMenuBar }: openModalProps): ReactElement => {
+const header = ({ setOpenMenuBar, setOpenAlarm }: openModalProps): ReactElement => {
   const onMenu: React.MouseEventHandler<HTMLButtonElement> = () => {
     setOpenMenuBar((openMenuBar) => !openMenuBar);
   };
@@ -18,7 +19,7 @@ const header = ({ setOpenMenuBar }: openModalProps): ReactElement => {
           <Menubar />
         </button>
         <button className="header-icon-button-common-attr">
-          <RightMenu />
+          <RightMenu setOpenAlarm={setOpenAlarm} />
         </button>
       </div>
     </div>
