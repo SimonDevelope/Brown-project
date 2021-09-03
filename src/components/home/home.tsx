@@ -4,6 +4,7 @@ import Main from '../main/main';
 import MenuModal from '../modal/menubar/menubar';
 import AddCounter from '../modal/addcounter/addcounter';
 import Alarm from '../modal/alarm/alarm';
+import Footer from '../footer/footer';
 import './home.scss';
 
 const home = (): ReactElement => {
@@ -18,6 +19,8 @@ const home = (): ReactElement => {
       {addCounter ? <AddCounter setAddCounter={setAddCounter} addCounter={addCounter} /> : ''}
       {openAlarm ? <Alarm setOpenAlarm={setOpenAlarm} /> : ''}
       <Main setAddCounter={setAddCounter} />
+      <div className="home-partition-attr"></div>
+      <Footer />
     </div>
   );
 };

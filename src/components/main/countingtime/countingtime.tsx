@@ -9,7 +9,7 @@ interface addCounterProps {
 const countingtime = ({ setAddCounter }: addCounterProps): ReactElement => {
   const openAddUniversityCounter = useCallback(() => {
     setAddCounter((addCounter) => !addCounter);
-    window.scrollTo({ top: 351 });
+    window.scrollTo({ top: 690 });
   }, [setAddCounter]);
 
   return (
