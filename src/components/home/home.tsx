@@ -6,12 +6,18 @@ import AddCounter from '../modal/addcounter/addcounter';
 import Alarm from '../modal/alarm/alarm';
 import Footer from '../footer/footer';
 import './home.scss';
+import { useToggleMenubarModal } from '../../stores/utilContext';
+
+interface openModalProps {
+  setOpenMenuBar: React.Dispatch<React.SetStateAction<boolean>>;
+  setOpenAlarm: React.Dispatch<React.SetStateAction<boolean>>;
+  openMenuBar: boolean;
+  openAlarm: boolean;
+}
 
 const home = (): ReactElement => {
-  const [openMenuBar, setOpenMenuBar] = useState<boolean>(false);
   const [addCounter, setAddCounter] = useState<boolean>(false);
-  const [openAlarm, setOpenAlarm] = useState<boolean>(false);
-
+  const { openMenuBar, setOpenMenuBar, openAlarm, setOpenAlarm }: openModalProps = useToggleMenubarModal();
   return (
     <div className="home-total-view-port">
       <Header setOpenMenuBar={setOpenMenuBar} setOpenAlarm={setOpenAlarm} />

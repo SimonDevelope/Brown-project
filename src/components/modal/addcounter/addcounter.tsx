@@ -30,8 +30,8 @@ const addCounter = ({ setAddCounter, addCounter }: setAddCounterProps): ReactEle
     return () => {
       document.removeEventListener('mousedown', closeAddCounterModal);
       document.body.style.cssText = `
-    overflow-y: scroll
-    `;
+        overflow-y: scroll
+        `;
     };
   }, []);
 

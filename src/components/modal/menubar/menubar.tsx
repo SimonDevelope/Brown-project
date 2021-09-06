@@ -1,5 +1,6 @@
 import React, { ReactElement, useCallback, useEffect, useRef } from 'react';
-import { HamburgerIcon } from '../../svg/svg';
+import { Link } from 'react-router-dom';
+import { CloseIcon } from '../../svg/svg';
 import './menubar.scss';
 
 interface onMenuProps {
@@ -26,15 +27,13 @@ const menubarModal = ({ setOpenMenuBar }: onMenuProps): ReactElement => {
     <div className="menubar-modal-total-view-port" ref={outOfMenubarModal}>
       <div className="menubar-modal-hamburger-button-wrapper">
         <button className="hamburger-button-attr" onClick={onMenu}>
-          <HamburgerIcon />
+          <CloseIcon />
         </button>
       </div>
       <div className="menubar-modal-total-inner-view-port">
         <div className="menubar-modal-content-wrapper">
           <div className="menubar-modal-content-common-attr">
-            <a href="#" className="menubar-modal-a-attr">
-              <span>홈</span>
-            </a>
+            <Link to="/">홈</Link>
           </div>
           <div className="menubar-modal-content-common-attr">
             <a href="#" className="menubar-modal-a-attr">
@@ -42,9 +41,7 @@ const menubarModal = ({ setOpenMenuBar }: onMenuProps): ReactElement => {
             </a>
           </div>
           <div className="menubar-modal-content-common-attr">
-            <a href="#" className="menubar-modal-a-attr">
-              <span>스케줄</span>
-            </a>
+            <Link to="/schedule">스케쥴</Link>
           </div>
           <div className="menubar-modal-content-common-attr">
             <a href="#" className="menubar-modal-a-attr">

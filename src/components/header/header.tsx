@@ -1,11 +1,10 @@
-import React, { ReactElement, ReactNode } from 'react';
+import React, { ReactElement } from 'react';
 import Menubar from '../menubar/menubar';
 import RightMenu from './rightmenu/rightmenu';
 import './header.scss';
 interface openModalProps {
   setOpenMenuBar: React.Dispatch<React.SetStateAction<boolean>>;
   setOpenAlarm: React.Dispatch<React.SetStateAction<boolean>>;
-  children?: ReactNode;
 }
 
 const header = ({ setOpenMenuBar, setOpenAlarm }: openModalProps): ReactElement => {
