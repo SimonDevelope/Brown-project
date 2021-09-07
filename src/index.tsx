@@ -6,10 +6,10 @@ import { BrowserRouter } from 'react-router-dom';
 import { ToggleMenuBarModalProvider } from './stores/utilContext';
 
 ReactDOM.render(
-  <BrowserRouter>
-    <ToggleMenuBarModalProvider>
+  <ToggleMenuBarModalProvider>
+    <BrowserRouter>
       <App />
-    </ToggleMenuBarModalProvider>
-  </BrowserRouter>,
+    </BrowserRouter>
+  </ToggleMenuBarModalProvider>,
   document.getElementById('root'),
 );

@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import Menubar from '../menubar/menubar';
 import RightMenu from './rightmenu/rightmenu';
 import './header.scss';
-interface openModalProps {
+export interface openModalProps {
   setOpenMenuBar: React.Dispatch<React.SetStateAction<boolean>>;
   setOpenAlarm: React.Dispatch<React.SetStateAction<boolean>>;
 }
