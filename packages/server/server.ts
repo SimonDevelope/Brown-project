@@ -1,13 +1,30 @@
 require("dotenv").config();
 
-const Koa = require("koa");
-const app = new Koa();
-const port = process.env.DB_PORT || 4001;
+const express = require("express");
+const cors = require("cors");
+const port = process.env.DB_PORT;
+const app = express();
 
-app.use(async (ctx: any) => {
-  ctx.body = "Hello World";
+import { Request, Response } from "express";
+import "reflect-metadata";
+import { createConnection } from "typeorm";
+import connectionOptions from "./ormconfig";
+
+app.use(express.json());
+app.use(cors());
+app.use(express.urlencoded({ extended: true }));
+
+createConnection(connectionOptions)
+  .then(() => {
+    console.log("connected!");
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+
+app.get("/", async (req: Request, res: Response) => {
+  res.send("hi");
 });
-
 app.listen(port, () => {
-  console.log("the server is running on 4000");
+  console.log("the server running");
 });
