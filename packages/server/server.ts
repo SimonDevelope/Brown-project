@@ -8,13 +8,13 @@ const app = express();
 import { Request, Response } from "express";
 import "reflect-metadata";
 import { createConnection } from "typeorm";
-import connectionOptions from "./ormconfig";
+import ConnectionOptions from "./ormconfig";
 
 app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
-createConnection(connectionOptions)
+createConnection(ConnectionOptions)
   .then(() => {
     console.log("connected!");
   })

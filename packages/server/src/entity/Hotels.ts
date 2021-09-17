@@ -1,16 +1,16 @@
 import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
-export class Photo {
+export class Hotel {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  firstName: string;
+  location: string;
 
   @Column()
-  lastName: string;
+  name: string;
 
   @Column()
-  specify: number;
+  phoneNumber: number;
 }
