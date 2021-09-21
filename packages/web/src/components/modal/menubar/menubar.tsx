@@ -33,20 +33,24 @@ const menubarModal = ({ setOpenMenuBar }: onMenuProps): ReactElement => {
       <div className="menubar-modal-total-inner-view-port">
         <div className="menubar-modal-content-wrapper">
           <div className="menubar-modal-content-common-attr">
-            <Link to="/">홈</Link>
+            <Link to="/" className="menubar-modal-router-link-common-attr">
+              홈
+            </Link>
           </div>
           <div className="menubar-modal-content-common-attr">
-            <a href="#" className="menubar-modal-a-attr">
-              <span>단어</span>
-            </a>
+            <Link to="/word" className="menubar-modal-router-link-common-attr">
+              단어
+            </Link>
           </div>
           <div className="menubar-modal-content-common-attr">
-            <Link to="/schedule">스케쥴</Link>
+            <Link to="/schedule" className="menubar-modal-router-link-common-attr">
+              스케쥴
+            </Link>
           </div>
           <div className="menubar-modal-content-common-attr">
-            <a href="#" className="menubar-modal-a-attr">
-              <span>공지사항</span>
-            </a>
+            <Link to="/notice" className="menubar-modal-router-link-common-attr">
+              공지사항
+            </Link>
           </div>
         </div>
       </div>

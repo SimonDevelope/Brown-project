@@ -8,18 +8,15 @@ export interface openModalProps {
 }
 
 const header = ({ setOpenMenuBar, setOpenAlarm }: openModalProps): ReactElement => {
-  const onMenu: React.MouseEventHandler<HTMLButtonElement> = () => {
-    setOpenMenuBar((openMenuBar) => !openMenuBar);
-  };
   return (
     <div className="header-total-wrapper">
-      <div className="header-total-inner-wrpaper">
-        <button className="header-icon-button-common-attr" onClick={onMenu}>
-          <Menubar />
-        </button>
-        <button className="header-icon-button-common-attr">
+      <div className="header-total-inner-wrapper">
+        <div className="header-menubar-icon-common-attr">
+          <Menubar setOpenMenuBar={setOpenMenuBar} />
+        </div>
+        <div className="header-right-menu-icon-common-attr">
           <RightMenu setOpenAlarm={setOpenAlarm} />
-        </button>
+        </div>
       </div>
     </div>
   );
