@@ -1,7 +1,7 @@
 import React from 'react';
 import { useToggleMenubarModal } from '../../../stores/utilContext';
 import Header from '../../header/header';
-import Calendar from '../../main/calendar/calendar';
+// import Calendar from '../../main/calendar/calendar';
 import Alarm from '../../modal/alarm/alarm';
 import MenuModal from '../../modal/menubar/menubar';
 
@@ -12,7 +12,7 @@ const noticeRouter = () => {
       <Header setOpenMenuBar={setOpenMenuBar} setOpenAlarm={setOpenAlarm} />
       {openAlarm ? <Alarm setOpenAlarm={setOpenAlarm} /> : ''}
       {openMenuBar ? <MenuModal setOpenMenuBar={setOpenMenuBar} /> : ''}
-      <Calendar />
+      {/* <Calendar /> */}
     </>
   );
 };

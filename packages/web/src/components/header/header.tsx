@@ -2,12 +2,13 @@ import React, { ReactElement } from 'react';
 import Menubar from '../menubar/menubar';
 import RightMenu from './rightmenu/rightmenu';
 import './header.scss';
-export interface openModalProps {
+
+interface onModalProps {
   setOpenMenuBar: React.Dispatch<React.SetStateAction<boolean>>;
   setOpenAlarm: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const header = ({ setOpenMenuBar, setOpenAlarm }: openModalProps): ReactElement => {
+const header = ({ setOpenMenuBar, setOpenAlarm }: onModalProps): ReactElement => {
   return (
     <div className="header-total-wrapper">
       <div className="header-total-inner-wrapper">
