@@ -1,17 +1,17 @@
 .under-header-total-wrppaer {
     width: 100%;
-    height: 100%;
-    position: relative;
-    margin: 0 auto;
+    height: 20vh;
+    position: fixed;
+    top: 0;
+    z-index: 1;
   }
 .under-header-total-inner-wrapper {
     width: 100%;
-    height: 60px;
+    height: 8vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
-    margin: 0 auto;
     left: 0;
     padding: 0 20px;
     background: #DDDDDD;

@@ -1,4 +1,4 @@
-import React, { ReactElement, useState, useRef, useEffect, useCallback } from 'react';
+import React, { ReactElement, useState, useRef, useCallback, useEffect } from 'react';
 import Header from '../header/header';
 import Main from '../main/main';
 import MenuModal from '../modal/menubar/menubar';
@@ -20,41 +20,46 @@ interface openModalProps {
 
 const home = (): ReactElement => {
   const [addCounter, setAddCounter] = useState<boolean>(false);
-  const { openMenuBar, setOpenMenuBar, openAlarm, setOpenAlarm, setChangeHeader, changeHeader }: openModalProps =
+  const { openMenuBar, setOpenMenuBar, openAlarm, setOpenAlarm, changeHeader, setChangeHeader }: openModalProps =
     useToggleMenubarModal();
 
   const loader: any = useRef();
 
   const handleObserver = useCallback((entries) => {
     const target = entries[0];
-    if (!target.isInteresting) {
+    if (target.isIntersecting === true) {
+      setChangeHeader(false);
+    } else if (target.isIntersecting === false) {
       setChangeHeader((changeHeader) => !changeHeader);
     }
   }, []);
+
   useEffect(() => {
     const option = {
       root: null,
+      rootMargin: '0px',
       threshold: 0.8,
     };
     const observer = new IntersectionObserver(handleObserver, option);
     if (loader.current) {
       observer.observe(loader.current);
-      console.log(loader.current);
     }
-    return () => observer && observer.disconnect();
+    return () => observer.disconnect();
   }, [handleObserver]);
 
   return (
     <div className="home-total-view-port">
-      {changeHeader ? (
-        <Header setOpenMenuBar={setOpenMenuBar} setOpenAlarm={setOpenAlarm} />
-      ) : (
-        <UnderHeader setOpenMenuBar={setOpenMenuBar} setOpenAlarm={setOpenAlarm} />
-      )}
+      <div className="home-header-total-outter-warpper" ref={loader}>
+        {changeHeader ? (
+          <UnderHeader setOpenMenuBar={setOpenMenuBar} setOpenAlarm={setOpenAlarm} />
+        ) : (
+          <Header setOpenMenuBar={setOpenMenuBar} setOpenAlarm={setOpenAlarm} />
+        )}
+      </div>
       {openMenuBar ? <MenuModal setOpenMenuBar={setOpenMenuBar} /> : ''}
       {addCounter ? <AddCounter setAddCounter={setAddCounter} addCounter={addCounter} /> : ''}
       {openAlarm ? <Alarm setOpenAlarm={setOpenAlarm} /> : ''}
-      <Main setAddCounter={setAddCounter} loader={loader} />
+      <Main setAddCounter={setAddCounter} />
       <div className="home-partition-attr"></div>
       <Footer />
     </div>

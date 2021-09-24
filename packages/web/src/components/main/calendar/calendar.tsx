@@ -2,12 +2,9 @@ import React, { ReactElement } from 'react';
 import CalendarFunction from './utils/calendarFunction';
 import './calendar.scss';
 
-interface trackerProps {
-  loader: any;
-}
-const calendar = ({ loader }: trackerProps): ReactElement => {
+const calendar = (): ReactElement => {
   return (
-    <div className="calendar-total-view-wrapper" ref={loader}>
+    <div className="calendar-total-view-wrapper">
       <div className="calendar-subject">
         <span className="calendar-subject-attr">🗓</span>
       </div>

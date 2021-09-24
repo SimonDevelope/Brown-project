@@ -7,12 +7,11 @@ import './main.scss';
 
 interface addCounterProps {
   setAddCounter: React.Dispatch<React.SetStateAction<boolean>>;
-  loader: any;
 }
-const main = ({ setAddCounter, loader }: addCounterProps): ReactElement => {
+const main = ({ setAddCounter }: addCounterProps): ReactElement => {
   return (
     <div className="main-total-view-port">
-      <Calendar loader={loader} />
+      <Calendar />
       <CountingTime setAddCounter={setAddCounter} />
       <Notice />
       <Map />

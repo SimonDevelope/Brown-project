@@ -25,6 +25,7 @@ const ToggleMenuBarModalProvider = ({ children }: ToggleMenuBarModalProps) => {
   const [openMenuBar, setOpenMenuBar] = useState<boolean>(false);
   const [openAlarm, setOpenAlarm] = useState<boolean>(false);
   const [changeHeader, setChangeHeader] = useState<boolean>(false);
+
   return (
     <ToggleMenuBarModal.Provider
       value={{ openMenuBar, openAlarm, setOpenMenuBar, setOpenAlarm, changeHeader, setChangeHeader }}
