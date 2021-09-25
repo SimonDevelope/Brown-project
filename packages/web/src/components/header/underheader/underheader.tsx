@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
-import Menubar from '../../menubar/menubar';
-import RightMenu from '../rightmenu/rightmenu';
+import { UnderMenubar } from '../../menubar/menubar';
+import { UnderRightMenu } from '../rightmenu/rightmenu';
 import './underheader.scss';
 
 interface modalProps {
@@ -12,10 +12,10 @@ const underheader = ({ setOpenMenuBar, setOpenAlarm }: modalProps): ReactElement
     <div className="under-header-total-wrppaer">
       <div className="under-header-total-inner-wrapper">
         <div className="under-header-menubar-icon-common-attr">
-          <Menubar setOpenMenuBar={setOpenMenuBar} />
+          <UnderMenubar setOpenMenuBar={setOpenMenuBar} />
         </div>
         <div className="under-header-right-menu-icon-common-attr">
-          <RightMenu setOpenAlarm={setOpenAlarm} />
+          <UnderRightMenu setOpenAlarm={setOpenAlarm} />
         </div>
       </div>
     </div>

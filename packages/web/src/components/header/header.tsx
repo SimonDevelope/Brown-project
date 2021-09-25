@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
-import Menubar from '../menubar/menubar';
-import RightMenu from './rightmenu/rightmenu';
+import { Menubar } from '../menubar/menubar';
+import { Rightmenu } from './rightmenu/rightmenu';
 import './header.scss';
 
 interface onModalProps {
@@ -16,7 +16,7 @@ const header = ({ setOpenMenuBar, setOpenAlarm }: onModalProps): ReactElement =>
           <Menubar setOpenMenuBar={setOpenMenuBar} />
         </div>
         <div className="header-right-menu-icon-common-attr">
-          <RightMenu setOpenAlarm={setOpenAlarm} />
+          <Rightmenu setOpenAlarm={setOpenAlarm} />
         </div>
       </div>
     </div>

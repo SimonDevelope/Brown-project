@@ -1,7 +1,5 @@
 import React, { ReactElement } from 'react';
-import Calendar from './calendar/calendar';
 import CountingTime from './countingtime/countingtime';
-import Notice from './notice/notice';
 import Map from './map/mapofnear';
 import './main.scss';
 
@@ -11,9 +9,7 @@ interface addCounterProps {
 const main = ({ setAddCounter }: addCounterProps): ReactElement => {
   return (
     <div className="main-total-view-port">
-      <Calendar />
       <CountingTime setAddCounter={setAddCounter} />
-      <Notice />
       <Map />
     </div>
   );

@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import CalendarFunction from './utils/calendarFunction';
+import CalendarFunction from '../../utils/calendar/calendarFunction';
 import './calendar.scss';
 
 const calendar = (): ReactElement => {

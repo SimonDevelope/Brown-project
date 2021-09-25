@@ -1,5 +1,6 @@
 import React, { ReactElement, useState, useRef, useCallback, useEffect } from 'react';
 import Header from '../header/header';
+import FrontDesk from './frontdesk/frontdesk';
 import Main from '../main/main';
 import MenuModal from '../modal/menubar/menubar';
 import AddCounter from '../modal/addcounter/addcounter';
@@ -59,6 +60,7 @@ const home = (): ReactElement => {
       {openMenuBar ? <MenuModal setOpenMenuBar={setOpenMenuBar} /> : ''}
       {addCounter ? <AddCounter setAddCounter={setAddCounter} addCounter={addCounter} /> : ''}
       {openAlarm ? <Alarm setOpenAlarm={setOpenAlarm} /> : ''}
+      <FrontDesk />
       <Main setAddCounter={setAddCounter} />
       <div className="home-partition-attr"></div>
       <Footer />

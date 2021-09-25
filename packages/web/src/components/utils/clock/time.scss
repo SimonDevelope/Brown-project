@@ -1,0 +1,17 @@
+.time-zone-outter-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: unset;
+    align-items: center;
+}
+.time-hour-and-minute-wrapper {
+    font-size: 60px;
+    font-weight: 600;
+}
+.time-second-wrapper {
+    font-size: 32px;
+    font-weight: 600;
+    margin: 0px 10px;
+    padding-top: 10px;
+}
