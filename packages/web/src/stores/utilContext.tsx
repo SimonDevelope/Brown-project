@@ -9,6 +9,10 @@ interface ToggleMenuBarModalStateProps {
   setChangeHeader: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+interface ToggleMenuBarModalProps {
+  children: React.ReactNode;
+}
+
 const ToggleMenuBarModal = createContext<ToggleMenuBarModalStateProps>({
   openMenuBar: false,
   setOpenMenuBar: () => {},
@@ -17,9 +21,6 @@ const ToggleMenuBarModal = createContext<ToggleMenuBarModalStateProps>({
   changeHeader: false,
   setChangeHeader: () => {},
 });
-interface ToggleMenuBarModalProps {
-  children: React.ReactNode;
-}
 
 const ToggleMenuBarModalProvider = ({ children }: ToggleMenuBarModalProps) => {
   const [openMenuBar, setOpenMenuBar] = useState<boolean>(false);
