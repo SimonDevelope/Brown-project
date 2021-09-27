@@ -18,18 +18,7 @@ type Action = { type: 'CREATE'; text: string } | { type: 'TOGGLE'; id: number } 
 type TodosDispatch = Dispatch<Action>;
 const TodosDispatchContext = createContext<TodosDispatch | undefined>(undefined);
 
-const initialState = [
-  {
-    id: 1,
-    text: 'JavaScript공부하기',
-    done: false,
-  },
-  {
-    id: 2,
-    text: 'Python공부하기',
-    done: false,
-  },
-];
+const initialState: TodosState = [{ id: 1, text: 'good', done: false }];
 
 const todosReducer = (state: TodosState, action: Action): TodosState => {
   const nextId = Math.max(...state.map((todo) => todo.id)) + 1;
