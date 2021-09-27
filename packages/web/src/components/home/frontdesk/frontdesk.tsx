@@ -1,5 +1,6 @@
 import React, { ReactElement, useState } from 'react';
 import Time from '../../utils/clock/time';
+import TodoList from './todolist/todolist';
 import { useTodosState, useTodosDispatch } from '../../../stores/todosContext';
 import './frontdesk.scss';
 
@@ -41,12 +42,8 @@ const frontdesk = (): ReactElement => {
             <input className="frontdesk-simple-todolist-input-area" value={value} onChange={onChange} />
           </form>
           <div className="frontdesk-simple-todolist-view-port">
-            {todos.state.map((todo: any) => {
-              return (
-                <div key={todo.id} className="frontdesk-list-block">
-                  {todo.text}
-                </div>
-              );
+            {todos.state.map((todolist: any) => {
+              return <TodoList todolist={todolist} key={todolist.id} />;
             })}
           </div>
         </div>
