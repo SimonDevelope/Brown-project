@@ -23,6 +23,10 @@ const menubarModal = ({ setOpenMenuBar }: onMenuProps): ReactElement => {
     setOpenMenuBar((openMenuBar) => !openMenuBar);
   }, [setOpenMenuBar]);
 
+  const closeMenu: React.MouseEventHandler<HTMLAnchorElement> = useCallback(() => {
+    setOpenMenuBar(false);
+  }, [setOpenMenuBar]);
+
   return (
     <div className="menubar-modal-total-view-port" ref={outOfMenubarModal}>
       <div className="menubar-modal-hamburger-button-wrapper">
@@ -33,22 +37,22 @@ const menubarModal = ({ setOpenMenuBar }: onMenuProps): ReactElement => {
       <div className="menubar-modal-total-inner-view-port">
         <div className="menubar-modal-content-wrapper">
           <div className="menubar-modal-content-common-attr">
-            <Link to="/" className="menubar-modal-router-link-common-attr">
+            <Link to="/" className="menubar-modal-router-link-common-attr" onClick={closeMenu}>
               홈
             </Link>
           </div>
           <div className="menubar-modal-content-common-attr">
-            <Link to="/word" className="menubar-modal-router-link-common-attr">
+            <Link to="/word" className="menubar-modal-router-link-common-attr" onClick={closeMenu}>
               단어
             </Link>
           </div>
           <div className="menubar-modal-content-common-attr">
-            <Link to="/schedule" className="menubar-modal-router-link-common-attr">
+            <Link to="/schedule" className="menubar-modal-router-link-common-attr" onClick={closeMenu}>
               스케쥴
             </Link>
           </div>
           <div className="menubar-modal-content-common-attr">
-            <Link to="/notice" className="menubar-modal-router-link-common-attr">
+            <Link to="/notice" className="menubar-modal-router-link-common-attr" onClick={closeMenu}>
               공지사항
             </Link>
           </div>
