@@ -1,4 +1,4 @@
-import React, { ReactElement, useState, useRef, useCallback, useEffect } from 'react';
+import React, { ReactElement, useRef, useEffect } from 'react';
 import Header from '../header/header';
 import FrontDesk from './frontdesk/frontdesk';
 import Main from '../main/main';
@@ -14,26 +14,27 @@ interface openModalProps {
   setOpenMenuBar: React.Dispatch<React.SetStateAction<boolean>>;
   setOpenAlarm: React.Dispatch<React.SetStateAction<boolean>>;
   setChangeHeader: React.Dispatch<React.SetStateAction<boolean>>;
+  setAddCounter: React.Dispatch<React.SetStateAction<boolean>>;
   openMenuBar: boolean;
   openAlarm: boolean;
   changeHeader: boolean;
+  addCounter: boolean;
+  handleObserver: (entries: any) => void;
 }
 
 const home = (): ReactElement => {
-  const [addCounter, setAddCounter] = useState<boolean>(false);
-  const { openMenuBar, setOpenMenuBar, openAlarm, setOpenAlarm, changeHeader, setChangeHeader }: openModalProps =
-    useToggleMenubarModal();
+  const {
+    openMenuBar,
+    setOpenMenuBar,
+    openAlarm,
+    setOpenAlarm,
+    changeHeader,
+    addCounter,
+    setAddCounter,
+    handleObserver,
+  }: openModalProps = useToggleMenubarModal();
 
   const loader: any = useRef();
-
-  const handleObserver = useCallback((entries) => {
-    const target = entries[0];
-    if (target.isIntersecting === true) {
-      setChangeHeader(false);
-    } else if (target.isIntersecting === false) {
-      setChangeHeader((changeHeader) => !changeHeader);
-    }
-  }, []);
 
   useEffect(() => {
     const option = {

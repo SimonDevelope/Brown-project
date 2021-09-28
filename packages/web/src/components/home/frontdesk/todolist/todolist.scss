@@ -10,6 +10,13 @@
     cursor: pointer;
     width: fit-content;
 }
+.todolist-list-area-button-wrapper:hover {
+    background: #DDDDDD;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: fit-content;
+}
 .donotdone {
     font-size: 16px;
     margin: 2vh;
@@ -18,7 +25,7 @@
     font-size: 16px;
     margin: 2vh;
     text-decoration: line-through;
-    color: #DDDDDD;
+    color: #b3b3b3;
 }
 .todolist-delete-button-attr {
     width: 5vh;

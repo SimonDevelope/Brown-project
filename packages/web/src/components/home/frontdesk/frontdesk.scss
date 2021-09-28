@@ -30,6 +30,7 @@
     position: relative;
     margin: 10px 0px;
     width: 29vh;
+    color: #aeaeae;
 }
 .frontdesk-simple-todolist-area {
     position: relative;
@@ -48,8 +49,10 @@
     display:block;
     font-size: 20px;
     margin: 20px 0px;
+    color: #aeaeae;
+    font-weight: 600;
 }
-.frontdesk-simple-todolist-input-area {
+.show-input {
     margin: 20px 0px;
     width: 30%;
     height: 35%;
@@ -60,6 +63,19 @@
     outline: none;
     text-align: center;
     font-size: 18px;
+}
+.donot-show-input{
+    margin: 20px 0px;
+    width: 30%;
+    height: 35%;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 2px solid #DDDDDD;
+    outline: none;
+    text-align: center;
+    font-size: 18px;
+    display: none;
 }
 .front-desk-insert-form {
     background: none;

@@ -1,18 +1,42 @@
-import React from 'react';
+import React, { ReactElement, useEffect, useRef } from 'react';
 import { useToggleMenubarModal } from '../../../stores/utilContext';
 import Header from '../../header/header';
 import Alarm from '../../modal/alarm/alarm';
 import MenuModal from '../../modal/menubar/menubar';
+import UnderHeader from '../../header/underheader/underheader';
 import { Link } from 'react-router-dom';
 import './login.scss';
 
-const login = () => {
-  const { openAlarm, openMenuBar, setOpenAlarm, setOpenMenuBar } = useToggleMenubarModal();
+const login = (): ReactElement => {
+  const loader: any = useRef();
+  const { openAlarm, openMenuBar, setOpenAlarm, setOpenMenuBar, changeHeader, handleObserver } =
+    useToggleMenubarModal();
+
+  useEffect(() => {
+    const option = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.8,
+    };
+    const observer = new IntersectionObserver(handleObserver, option);
+    if (loader.current) {
+      observer.observe(loader.current);
+    }
+    return () => observer.disconnect();
+  }, [handleObserver]);
+
   return (
-    <>
-      <Header setOpenMenuBar={setOpenMenuBar} setOpenAlarm={setOpenAlarm} />
+    <div className="login-total-view-port">
+      <div className="login-header-total-outter-wrapper" ref={loader}>
+        {changeHeader ? (
+          <UnderHeader setOpenMenuBar={setOpenMenuBar} setOpenAlarm={setOpenAlarm} />
+        ) : (
+          <Header setOpenMenuBar={setOpenMenuBar} setOpenAlarm={setOpenAlarm} />
+        )}
+      </div>
       {openAlarm ? <Alarm setOpenAlarm={setOpenAlarm} /> : ''}
       {openMenuBar ? <MenuModal setOpenMenuBar={setOpenMenuBar} /> : ''}
+
       <div className="login-main-total-view-port">
         <div className="login-chart-view-port">
           <div className="login-chart-outter-wrapper">
@@ -36,7 +60,7 @@ const login = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

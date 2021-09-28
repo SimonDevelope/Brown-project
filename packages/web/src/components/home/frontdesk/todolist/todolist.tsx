@@ -1,14 +1,14 @@
 import React, { ReactElement } from 'react';
-import { useTodosDispatch, Todo } from '../../../../stores/todosContext';
 import { TrashBag } from '../../../svg/svg';
+import { Todo, Action } from '../frontdesk';
 import './todolist.scss';
 
 interface itemProps {
   todolist: Todo;
+  dispatch: React.Dispatch<Action>;
 }
 
-const todolist = ({ todolist }: itemProps): ReactElement => {
-  const dispatch = useTodosDispatch();
+const todolist = ({ todolist, dispatch }: itemProps): ReactElement => {
   const onRemove: React.MouseEventHandler<HTMLButtonElement> = () => {
     dispatch({
       type: 'REMOVE',

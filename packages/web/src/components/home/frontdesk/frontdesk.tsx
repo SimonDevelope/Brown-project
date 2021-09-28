@@ -1,12 +1,39 @@
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement, useState, useReducer, useRef } from 'react';
 import Time from '../../utils/clock/time';
 import TodoList from './todolist/todolist';
-import { useTodosState, useTodosDispatch } from '../../../stores/todosContext';
 import './frontdesk.scss';
 
+export type Todo = {
+  id: number;
+  text: string;
+  done: boolean;
+};
+
+export type TodosState = Todo[];
+export type Action = { type: 'CREATE'; text: string } | { type: 'TOGGLE'; id: number } | { type: 'REMOVE'; id: number };
+
 const frontdesk = (): ReactElement => {
-  const todos = useTodosState();
-  const dispatch = useTodosDispatch();
+  const nextId = useRef(1);
+  const initialState: TodosState = [];
+
+  const todosReducer = (state: TodosState, action: Action): TodosState => {
+    switch (action.type) {
+      case 'CREATE':
+        return state.concat({
+          id: nextId.current,
+          text: action.text,
+          done: false,
+        });
+      case 'TOGGLE':
+        return state.map((todo) => (todo.id === action.id ? { ...todo, done: !todo.done } : todo));
+      case 'REMOVE':
+        return state.filter((todo) => todo.id !== action.id);
+      default:
+        throw new Error('Unhandled action');
+    }
+  };
+
+  const [todos, dispatch] = useReducer(todosReducer, initialState);
   const [value, setValue] = useState('');
 
   const onChange: React.ChangeEventHandler<HTMLInputElement> = (e) => setValue(e.target.value);
@@ -18,6 +45,7 @@ const frontdesk = (): ReactElement => {
       text: value,
     });
     setValue('');
+    nextId.current += 1;
   };
 
   console.log(todos);
@@ -36,14 +64,20 @@ const frontdesk = (): ReactElement => {
         </div>
         <div className="frontdesk-simple-todolist-area">
           <div className="frontdesk-simple-todolist-inner-wrapper">
-            <span className="frontdesk-simple-todolist-subject">오늘 계획은 어떻게 되시나요?</span>
+            <span className="frontdesk-simple-todolist-subject">{`${
+              todos.length > 0 ? `${todos.length}개의 할 일이 남았습니다.` : `오늘 계획은 어떻게 되시나요?`
+            }`}</span>
           </div>
           <form className="front-desk-insert-form" onSubmit={onSubmit}>
-            <input className="frontdesk-simple-todolist-input-area" value={value} onChange={onChange} />
+            <input
+              className={`${todos.length > 4 ? 'donot-show-input' : 'show-input'}`}
+              value={value}
+              onChange={onChange}
+            />
           </form>
           <div className="frontdesk-simple-todolist-view-port">
-            {todos.state.map((todolist: any) => {
-              return <TodoList todolist={todolist} key={todolist.id} />;
+            {todos.map((todolist: any) => {
+              return <TodoList todolist={todolist} key={todolist.id} dispatch={dispatch} />;
             })}
           </div>
         </div>

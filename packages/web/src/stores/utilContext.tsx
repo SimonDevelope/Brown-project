@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState, useContext, useCallback } from 'react';
 
 interface ToggleMenuBarModalStateProps {
   openMenuBar: boolean;
@@ -7,6 +7,9 @@ interface ToggleMenuBarModalStateProps {
   setOpenAlarm: React.Dispatch<React.SetStateAction<boolean>>;
   changeHeader: boolean;
   setChangeHeader: React.Dispatch<React.SetStateAction<boolean>>;
+  addCounter: boolean;
+  setAddCounter: React.Dispatch<React.SetStateAction<boolean>>;
+  handleObserver: (entries: any) => void;
 }
 
 interface ToggleMenuBarModalProps {
@@ -20,16 +23,39 @@ const ToggleMenuBarModal = createContext<ToggleMenuBarModalStateProps>({
   setOpenAlarm: () => {},
   changeHeader: false,
   setChangeHeader: () => {},
+  addCounter: false,
+  setAddCounter: () => {},
+  handleObserver: () => {},
 });
 
 const ToggleMenuBarModalProvider = ({ children }: ToggleMenuBarModalProps) => {
   const [openMenuBar, setOpenMenuBar] = useState<boolean>(false);
   const [openAlarm, setOpenAlarm] = useState<boolean>(false);
   const [changeHeader, setChangeHeader] = useState<boolean>(false);
+  const [addCounter, setAddCounter] = useState<boolean>(false);
+
+  const handleObserver = useCallback((entries: any) => {
+    const target = entries[0];
+    if (target.isIntersecting === true) {
+      setChangeHeader(false);
+    } else if (target.isIntersecting === false) {
+      setChangeHeader((changeHeader) => !changeHeader);
+    }
+  }, []);
 
   return (
     <ToggleMenuBarModal.Provider
-      value={{ openMenuBar, openAlarm, setOpenMenuBar, setOpenAlarm, changeHeader, setChangeHeader }}
+      value={{
+        openMenuBar,
+        openAlarm,
+        setOpenMenuBar,
+        setOpenAlarm,
+        changeHeader,
+        setChangeHeader,
+        addCounter,
+        setAddCounter,
+        handleObserver,
+      }}
     >
       {children}
     </ToggleMenuBarModal.Provider>

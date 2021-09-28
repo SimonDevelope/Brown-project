@@ -4,13 +4,10 @@ import './index.css';
 import App from './App';
 
 import { ToggleMenuBarModalProvider } from './stores/utilContext';
-import { TodoContextProvider } from './stores/todosContext';
 
 ReactDOM.render(
   <ToggleMenuBarModalProvider>
-    <TodoContextProvider>
-      <App />
-    </TodoContextProvider>
+    <App />
   </ToggleMenuBarModalProvider>,
   document.getElementById('root'),
 );
