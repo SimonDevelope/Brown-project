@@ -28,7 +28,7 @@ const menubarModal = ({ setOpenMenuBar }: onMenuProps): ReactElement => {
   }, [setOpenMenuBar]);
 
   return (
-    <div className="menubar-modal-total-view-port" ref={outOfMenubarModal}>
+    <div className="menubar-show-side-slide-bar" ref={outOfMenubarModal}>
       <div className="menubar-modal-hamburger-button-wrapper">
         <button className="hamburger-button-attr" onClick={onMenu}>
           <CloseIcon />

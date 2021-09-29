@@ -1,4 +1,4 @@
-import React, { ReactElement, useState, useReducer, useRef } from 'react';
+import React, { ReactElement, useState, useReducer, useRef, useEffect } from 'react';
 import Time from '../../utils/clock/time';
 import TodoList from './todolist/todolist';
 import './frontdesk.scss';
@@ -13,9 +13,18 @@ export type TodosState = Todo[];
 export type Action = { type: 'CREATE'; text: string } | { type: 'TOGGLE'; id: number } | { type: 'REMOVE'; id: number };
 
 const frontdesk = (): ReactElement => {
-  const nextId = useRef(1);
-  const initialState: TodosState = [];
+  const nextId = useRef(0);
 
+  const getLocalItem = () => {
+    const todoList = window.localStorage.getItem('todo-list');
+    console.log(todoList);
+
+    if (todoList) {
+      return JSON.parse(window.localStorage.getItem('todo-list') || 'null');
+    } else {
+      return [];
+    }
+  };
   const todosReducer = (state: TodosState, action: Action): TodosState => {
     switch (action.type) {
       case 'CREATE':
@@ -33,7 +42,7 @@ const frontdesk = (): ReactElement => {
     }
   };
 
-  const [todos, dispatch] = useReducer(todosReducer, initialState);
+  const [todos, dispatch] = useReducer(todosReducer, getLocalItem());
   const [value, setValue] = useState('');
 
   const onChange: React.ChangeEventHandler<HTMLInputElement> = (e) => setValue(e.target.value);
@@ -47,8 +56,11 @@ const frontdesk = (): ReactElement => {
     setValue('');
     nextId.current += 1;
   };
-
   console.log(todos);
+
+  useEffect(() => {
+    window.localStorage.setItem('todo-list', JSON.stringify(todos));
+  }, [todos]);
 
   return (
     <div className="frontdesk-total-view-port">

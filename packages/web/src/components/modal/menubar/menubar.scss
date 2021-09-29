@@ -1,4 +1,4 @@
-.menubar-modal-total-view-port {
+.menubar-show-side-slide-bar {
     width: 250px;
     height: 795px;
     background: #f5f5f5;
@@ -6,6 +6,8 @@
     top: 0;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     z-index: 3;
+    transition: all 0.8s ease-in-out;
+    transform-origin: 0 100%;
 }
 .menubar-modal-total-inner-view-port {
     width: 100%;
@@ -19,6 +21,7 @@
     justify-content: space-between;
     align-items:flex-start;
     padding: 10px 20px;
+
 }
 .menubar-modal-content-common-attr {
     display: block;
