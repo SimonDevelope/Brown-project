@@ -1,16 +1,29 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
+import { Entity, Column, BeforeInsert, Index, OneToMany } from "typeorm";
+import { Common } from "./Common";
+import { UserToken } from "./UserToken";
+
+const bcrypt = require("bcrypt");
 
 @Entity()
-export class Photo {
-  @PrimaryGeneratedColumn()
-  id: number;
+export class User extends Common {
+  @Index({ unique: true })
+  @Column("varchar", { length: 20, comment: "user id" })
+  username: string;
 
-  @Column()
-  firstName: string;
+  @Column("varchar", { comment: "user id" })
+  password: string;
 
-  @Column()
-  lastName: string;
+  @BeforeInsert()
+  async saveEncryptedPassword() {
+    this.password = await bcrypt.hash(this.password, 5);
+  }
 
-  @Column()
-  specify: number;
+  @OneToMany((type) => UserToken, (userToken) => userToken.user, {
+    cascade: true,
+  })
+  userTokens: UserToken[];
+
+  comparePassword(password: string): boolean {
+    return bcrypt.compare(password, this.password);
+  }
 }

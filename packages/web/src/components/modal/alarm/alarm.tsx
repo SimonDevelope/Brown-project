@@ -17,6 +17,7 @@ const alarm = ({ setOpenAlarm }: openAlarmProps): ReactElement => {
     document.addEventListener('mousedown', closeAlarmModal);
     return () => document.removeEventListener('mousedown', closeAlarmModal);
   }, []);
+
   return (
     <div className="alarm-modal-total-view-port" ref={outOfAlarmModal}>
       <div className="alarm-modal-inner-wrapper">
