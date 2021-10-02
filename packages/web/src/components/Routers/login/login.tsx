@@ -51,8 +51,13 @@ const login = (): ReactElement => {
                   <span className="login-common-word-attr">로그인</span>
                 </button>
                 <button className="login-find-pw-id-attr">
-                  <Link to="/FindId" className="login-pw-id-font-attr">
+                  <Link to="/findId" className="login-pw-id-font-attr">
                     <span>아이디 | 비밀번호 찾기</span>
+                  </Link>
+                </button>
+                <button className="login-make-pw-id-attr">
+                  <Link to="/signUp" className="login-make-pw-id-font-attr">
+                    <span>아직 회원이 아니신가요? sign up</span>
                   </Link>
                 </button>
               </div>

@@ -8,7 +8,7 @@ const app = express();
 import "reflect-metadata";
 import { createConnection } from "typeorm";
 import ConnectionOptions from "./ormconfig";
-import { UserRepository } from "./src/repository/UserRepository";
+import { SignupController } from "./src/repository/signup.controller";
 
 app.use(express.json());
 app.use(cors());
@@ -16,8 +16,10 @@ app.use(express.urlencoded({ extended: true }));
 
 createConnection(ConnectionOptions)
   .then(async () => {
+    SignupController().catch((err) => {
+      console.log(err);
+    });
     console.log("connected!");
-    await new UserRepository();
   })
   .catch((error) => {
     console.log(error);

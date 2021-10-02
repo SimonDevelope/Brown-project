@@ -76,13 +76,39 @@
 }
 .login-find-pw-id-attr {
     font-size: 14px;
-    margin-top: 5px;
+    margin-top: 20px;
     border: none;
     background: #ffffff;
     font-weight: 600;
     cursor: pointer;
+    width: fit-content;
+    height: 5vh;
+}
+.login-find-pw-id-attr:hover {
+    background: #DDDDDD;
+    border-radius: 12px;
 }
 .login-pw-id-font-attr {
+    text-decoration: none;
+    color: #000000;
+    font-size: 14px;
+    font-weight: 600;
+}
+.login-make-pw-id-attr {
+    background: none;
+    cursor: pointer;
+    border: none;
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    width: fit-content;
+    height: 5vh;
+}
+.login-make-pw-id-attr:hover {
+    background: #DDDDDD;
+    border-radius: 12px;
+}
+.login-make-pw-id-font-attr {
     text-decoration: none;
     color: #000000;
     font-size: 14px;
