@@ -43,15 +43,48 @@
     margin: 20px 0px;
 }
 .signup-form-wrapper {
+    width: 70%;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(5, 50px);
-    border: 1px solid #DDDDDD;
 }
 .signup-form-input-common-attr {
-    border: 1px solid #DDDDDD;
+    border: 2px solid #DDDDDD;
     width: 100%;
     display: block;
     box-sizing: border-box;
-
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+    text-align: center;
+    font-size: 16px;
+}
+.signup-form-common-input-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.signup-form-psw-common-print {
+    display: flex;
+    align-items: center;
+    
+}
+.signup-form-common-print {
+    display: flex;
+    align-items: center;
+}
+.signup-password-show-toggle-button {
+    margin-left: 2vh;
+    width: 10vh;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    color: #767676;
+}
+.signup-password-show-toggle-button:hover {
+    border-radius: 16px;
+    color: #286cfd;
 }

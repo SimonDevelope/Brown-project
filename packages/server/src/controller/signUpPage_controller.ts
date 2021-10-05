@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import { getRepository } from "typeorm";
 import { SignUpPage } from "../entity/signUpPage";
-
 export const insertSignUpInfo = async (req: Request, res: Response) => {
   try {
     const insertInfo = await getRepository(SignUpPage);
@@ -13,6 +12,7 @@ export const insertSignUpInfo = async (req: Request, res: Response) => {
       { title: "핸드폰 번호" },
     ]);
     await insertInfo.save(createContent);
+    return res.status(201).send(createContent);
   } catch (e) {
     throw new Error(e);
   }

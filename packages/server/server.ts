@@ -4,26 +4,19 @@ const express = require("express");
 const cors = require("cors");
 const port = process.env.DB_PORT;
 const app = express();
+const bodyParser = require("body-parser");
 
 import "reflect-metadata";
 import { createConnection } from "typeorm";
 import ConnectionOptions from "./ormconfig";
-import { Router } from "express";
-import {
-  insertSignUpInfo,
-  searchAllInfo,
-} from "./src/controller/signUpPage_controller";
-import {
-  insertExample,
-  searchAllList,
-} from "./src/controller/example.controller";
+import infoRouter from "./src/routes/info.routes";
 
-const router = Router();
-
-app.use(express.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
-app.use(express.urlencoded({ extended: true }));
-app.use(Router());
+
+// app.use("/insertInfo", pageInfoController.insertSignUpInfo);
+// app.use("/inserList", pageInfoController.searchAllInfo);
 
 createConnection(ConnectionOptions)
   .then(async () => {
@@ -33,11 +26,11 @@ createConnection(ConnectionOptions)
     console.log(error);
   });
 
-app.post("/insertInfo", insertSignUpInfo);
-app.get("/insertInfo/infoList", searchAllInfo);
-app.post("/example", insertExample);
-app.get("/example/list", searchAllList);
+// router.post("/insertPageInfo", pageInfoController.insertSignUpInfo);
 
+// app.post("/pageInfo", pageInfoController.insertSignUpInfo);
+// app.get("/search", pageInfoController.searchAllInfo);
+app.use("/", infoRouter);
 app.listen(port, () => {
   console.log("the server running");
 });
