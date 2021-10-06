@@ -130,4 +130,6 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; -moz-appearance: none; appearance: none; } 
+/* 파이어폭스에서의 초기화 방법 */ input[type=number] { -moz-appearance: textfield; }
 

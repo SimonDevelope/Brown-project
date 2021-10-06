@@ -43,7 +43,7 @@
     margin: 20px 0px;
 }
 .signup-form-wrapper {
-    width: 70%;
+    width: 80%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(5, 50px);
@@ -65,18 +65,24 @@
     justify-content: center;
     align-items: center;
 }
-.signup-form-psw-common-print {
+.signup-check-id-attr {
+    margin-left: 3vh;
+    font-size: 14px;
     display: flex;
     align-items: center;
-    
+    color: #e40026;
+}
+.signup-check-id-hidden-attr {
+    color: #ffffff;
 }
 .signup-form-common-print {
     display: flex;
     align-items: center;
+    font-weight: 600;
 }
 .signup-password-show-toggle-button {
     margin-left: 2vh;
-    width: 10vh;
+    width: fit-content;
     border: none;
     background: none;
     cursor: pointer;
@@ -87,4 +93,76 @@
 .signup-password-show-toggle-button:hover {
     border-radius: 16px;
     color: #286cfd;
+}
+.signup-submit-button-wrapper {
+    width: 80%;
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.signup-deactivation-sumit-button-attr {
+    width: 30vh;
+    height: 7vh;
+    border: none;
+    background: #DDDDDD;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.signup-activation-submit-button-attr {
+    width: 30vh;
+    height: 7vh;
+    border: none;
+    background: #286cfd;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.signup-checkNumEng-attr {
+    margin-left: 3vh;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    color: #e40026;
+}
+.signup-common-summative-information-attr {
+    display: flex;
+    align-items: center;
+}
+.signup-check-password-attr {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    color: #e40026;
+}
+.signup-password-information-attr {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    color: #e40026;
+    width: 100%;
+}
+.signup-password-information-hidden-attr {
+    margin-left: 3vh;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    width:  100%;
+}
+.signup-check-phonenumber-information-attr {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    color: #e40026;
+    width: 100%;
+}
+.signup-check-phonenumber-information-hidden-attr {
+    margin-left: 3vh;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    width:  100%;
 }
