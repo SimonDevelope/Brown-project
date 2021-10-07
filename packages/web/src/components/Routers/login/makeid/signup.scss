@@ -46,7 +46,7 @@
     width: 80%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(5, 50px);
+    grid-template-rows: repeat(5, 70px);
 }
 .signup-form-input-common-attr {
     border: 2px solid #DDDDDD;
@@ -107,17 +107,17 @@
     border: none;
     background: #DDDDDD;
     border-radius: 8px;
-    cursor: pointer;
     font-size: 16px;
 }
-.signup-activation-submit-button-attr {
+.signup-activation-sumit-button-attr {
     width: 30vh;
     height: 7vh;
     border: none;
-    background: #286cfd;
+    background: #286cfd;;
     border-radius: 8px;
     cursor: pointer;
     font-size: 16px;
+    color: #ffffff;
 }
 .signup-checkNumEng-attr {
     margin-left: 3vh;
@@ -152,6 +152,7 @@
     width:  100%;
 }
 .signup-check-phonenumber-information-attr {
+    margin-left: 3vh;
     font-size: 14px;
     display: flex;
     align-items: center;
