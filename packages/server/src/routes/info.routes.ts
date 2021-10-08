@@ -1,13 +1,15 @@
 import { Router } from "express";
 import {
-  insertSignUpInfo,
-  searchAllInfo,
-} from "../controller/signUpPage_controller";
+  // insertSignUpInfo,
+  // searchAllInfo,
+  insertSignUpData,
+  searchAllUserData,
+} from "../controller/user.controller";
 
 const router = Router();
 
-router.use(insertSignUpInfo, searchAllInfo);
-router.get("/signupinfo/AllList", searchAllInfo);
-router.post("/signupinfo/insertInfo", insertSignUpInfo);
+router.use(insertSignUpData, searchAllUserData);
+router.get("/signupinfo/AllList", searchAllUserData);
+router.post("/signupinfo/insertInfo", insertSignUpData);
 
 export default router;

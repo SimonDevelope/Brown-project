@@ -4,10 +4,11 @@ import UnderHeader from '../../../header/underheader/underheader';
 import Alarm from '../../../modal/alarm/alarm';
 import MenuModal from '../../../modal/menubar/menubar';
 import { useToggleMenubarModal } from '../../../../stores/utilContext';
-// import Axios from 'axios';
+import Axios from 'axios';
 import './signup.scss';
+import { RouteComponentProps } from 'react-router';
 
-const signup = (): ReactElement => {
+const signup = ({ history }: RouteComponentProps): ReactElement => {
   const loader: any = useRef();
   const { openAlarm, openMenuBar, setOpenAlarm, setOpenMenuBar, changeHeader, handleObserver } =
     useToggleMenubarModal();
@@ -149,6 +150,23 @@ const signup = (): ReactElement => {
       return true;
     }
   };
+  //
+
+  const submitLoginData: React.MouseEventHandler<HTMLButtonElement> = async () => {
+    const onSubmitData = await Axios.post('http://localhost:4000//signupinfo/insertInfo', {
+      email: inputValue.email,
+      password: inputValue.password,
+      checkpsw: inputValue.checkpsw,
+      name: inputValue.name,
+      phoneNum: inputValue.phoneNum,
+    });
+    if (onSubmitData.status === 201) {
+      alert('회원가입이 완료되었습니다. 로그인을 진행해주세요.');
+      history.push('/login');
+    } else if (onSubmitData.status !== 201) {
+      alert('회원가입에 실패하셨습니다. 다시 시도해 주세요.');
+    }
+  };
 
   return (
     <div className="signup-total-header-view-port">
@@ -253,6 +271,7 @@ const signup = (): ReactElement => {
               className={
                 buttonActivation() ? 'signup-activation-sumit-button-attr' : 'signup-deactivation-sumit-button-attr'
               }
+              onClick={submitLoginData}
             >
               회원가입
             </button>

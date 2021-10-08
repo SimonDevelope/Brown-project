@@ -17,7 +17,6 @@ const frontdesk = (): ReactElement => {
 
   const getLocalItem = () => {
     const todoList = window.localStorage.getItem('todo-list');
-    console.log(todoList);
 
     if (todoList) {
       return JSON.parse(window.localStorage.getItem('todo-list') || 'null');
@@ -56,7 +55,6 @@ const frontdesk = (): ReactElement => {
     setValue('');
     nextId.current += 1;
   };
-  console.log(todos);
 
   useEffect(() => {
     window.localStorage.setItem('todo-list', JSON.stringify(todos));
